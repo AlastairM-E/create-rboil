@@ -6,6 +6,8 @@ const cmd = `
     # basic npm structure
     $PWD = pwd;
 
+    yarn init -y
+
     yarn add --dev style-loader css-loader node-sass sass-loader html-loader file-loader
     yarn add --dev  webpack webpack-cli webpack-merge webpack-dev-server
     yarn add --dev mini-css-extract-plugin clean-webpack-plugin  html-webpack-plugin

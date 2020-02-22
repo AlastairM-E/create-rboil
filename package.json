@@ -1,6 +1,6 @@
 {
   "name": "create-rboil",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Please note that this package is NOT intented for downloading at the monement, this is a PERSONAL project.",
   "main": "node index.js",
   "bin": {
@@ -24,7 +24,7 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
-    "file-loader": "^5.0.2",
+    "file-loader": "^5.1.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
@@ -37,10 +37,10 @@
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js --open",
-    "build": "webpack --config webpack.prod.js",
-    "test": "webpack --config test.webpack.js && jest ./test && rm -r test/*",
-    "clear-test" : "rm -r test-area/* & rm -r test-area/.gitignore"
+    "start": "webpack-dev-server --config dev-scripts/webpack.dev.js --open",
+    "build": "webpack --config dev-scripts/webpack.prod.js",
+    "test": "webpack --config dev-scripts/test.webpack.js && jest ./test && rm -r test/*",
+    "clear-test": "rm -r test-area/* & rm -r test-area/.gitignore & clear"
   },
   "jest": {
     "transform": {

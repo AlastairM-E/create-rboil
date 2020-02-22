@@ -10,13 +10,13 @@ module.exports = webpackMerge(common, {
     mode : 'production',
     output : {
         filename : '[name].[contentHash].bundle.js',
-        path : path.resolve(__dirname, 'dist'),
+        path : path.resolve(__dirname, '../dist'),
     },
     optimization : {
         minimizer : [
             new TerserWebpackPlugin(),
             new HtmlWebpackPlugin({ 
-                emplate : './src/template.html',
+                template : './src/template.html',
                 minify : {
                     removeAttributeQuotes : true,
                     collapseWhitespace : true,

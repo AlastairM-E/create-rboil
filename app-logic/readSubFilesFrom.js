@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-function getSubFilesFromDirectory(targetDirectory, nextDir) {
+function readSubFilesFrom(targetDirectory) {
     const listOfSubFiles = [];
     fs.readdir(path.join(__dirname, targetDirectory), (err, files) => {
         try {
