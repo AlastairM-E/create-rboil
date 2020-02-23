@@ -1,6 +1,6 @@
 {
   "name": "create-rboil",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "description": "Please note that this package is NOT intented for downloading at the monement, this is a PERSONAL project.",
   "main": "node index.js",
   "bin": {
