@@ -1,7 +1,7 @@
 {
   "name": "create-rboil",
   "version": "1.2.1",
-  "description": "Please note that this package is NOT intented for downloading at the monement, this is a PERSONAL project.",
+  "description": "Basic react boilerplate generator",
   "main": "node index.js",
   "bin": {
     "rboil": "./index.js",
@@ -37,9 +37,9 @@
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --config dev-scripts/webpack.dev.js --open",
-    "build": "webpack --config dev-scripts/webpack.prod.js",
-    "test": "webpack --config dev-scripts/test.webpack.js && jest ./test && rm -r test/*",
+    "start": "webpack-dev-server --config template/dev-scripts/webpack.dev.js --open",
+    "build": "webpack --config template/dev-scripts/webpack.prod.js",
+    "test": "webpack --config template/dev-scripts/test.webpack.js && jest ./test && rm -r test/*",
     "clear-test": "rm -r test-area/* & rm -r test-area/.gitignore & clear"
   },
   "jest": {

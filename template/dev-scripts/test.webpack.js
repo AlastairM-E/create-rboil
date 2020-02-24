@@ -8,7 +8,7 @@ module.exports = {
     //output - outputs a main js file
     output : {
         filename : '[name].[contentHash].test.js',
-        path : path.resolve(__dirname, 'test')
+        path : path.resolve(__dirname, '../test')
     },
 
     module : {

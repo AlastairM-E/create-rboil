@@ -16,22 +16,37 @@ const cmd = `
     yarn add --dev jest
 
     # webpack and babel basic build
-    cp /Users/alastair/Documents/shell__commands/webpack.common.js "$PWD"
-    cp /Users/alastair/Documents/shell__commands/webpack.dev.js "$PWD"
-    cp /Users/alastair/Documents/shell__commands/webpack.prod.js "$PWD"
-    cp /Users/alastair/Documents/shell__commands/.gitignore "$PWD"
+    mkdir dev-scripts
+    cp dev-scripts/webpack.common.js "$PWD"
+    cp dev-scripts/webpack.dev.js "$PWD"
+    cp dev-scripts/webpack.prod.js "$PWD"
+    cp dev-scripts/.gitignore "$PWD"
         
     # basic setup for react to build a basic app
     mkdir src
-    cp /Users/alastair/Documents/shell__commands/src/index.js "$PWD/src"
-    cp /Users/alastair/Documents/shell__commands/src/App.js "$PWD/src"
-    cp /Users/alastair/Documents/shell__commands/src/template.html "$PWD/src"
-    cp /Users/alastair/Documents/shell__commands/src/app.test.js "$PWD/src"
+    cp src/index.js "$PWD/src"
+    cp src/App.js "$PWD/src"
+    cp src/template.html "$PWD/src"
+    cp src/app.test.js "$PWD/src"
 `;
 
-exec(cmd, (error) => { 
+const rboil = exec(cmd, (error) => { 
     console.log(argv);
     if (error) {
-        throw error
+        throw error;
     };
 });
+
+exec('yarn --version', (error, stdout) => {
+    if (error) {
+        throw error;
+    };
+
+    // if (stdout === null) {
+    //     return rboil('npm', npmOptions);
+    // };
+
+    // return rboil('yarn', yarnOptions);
+    return rboil;
+});
+
