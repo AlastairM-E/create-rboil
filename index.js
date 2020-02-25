@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { execSync } = require('child_process');
-const { argv } = require('process');
+const { readSubFilesFrom } = require('./cli/readSubFilesFrom');
+const { testFilesOnly } = require('./cli/testFilesOnly');
 
 const cmd = `
     # basic npm structure
@@ -21,4 +22,5 @@ const cmd = `
 `;
 
 execSync(cmd);
+
 
