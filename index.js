@@ -4,8 +4,8 @@ const process = require('process');
 const fs = require('fs');
 const path = require('path');
 
-const { readSubFilesFrom } = require('./cli/readSubFilesFrom');
-const { outputDirContentOf } = require('./cli/outputDirContentOf');
+const { readSubFilesFrom, outputDirContentOf } = require('create-rboil-utils');
+// const { outputDirContentOf } = require('./cli/outputDirContentOf');
 
 // const cmd = `
 //     # basic npm structure
@@ -20,12 +20,41 @@ const { outputDirContentOf } = require('./cli/outputDirContentOf');
 //     yarn add react react-dom
 //     yarn add --dev jest
 // `;
-
-const templateFiles = readSubFilesFrom('../template');
-outputDirContentOf(templateFiles, '../template', process.cwd());
-
-fs.copyFileSync(path.join(__dirname, '.gitignore'), `${process.cwd()}/.gitignore`);
 //execSync(cmd);
+
+const templateFiles = readSubFilesFrom(path.join(__dirname, 'template'));
+
+console.log('index.js', path.join(__dirname, 'template'), process.cwd());
+
+outputDirContentOf(templateFiles, path.join(__dirname, 'template'), process.cwd());
+fs.writeFileSync(`${process.cwd()}/.gitignore`, 
+  `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+  # dependencies
+  /node_modules
+  /dist
+  /.pnp
+  /yarn.lock
+  .pnp.js
+
+  # testing
+  /coverage
+
+  # production
+  /build
+
+  # misc
+  .DS_Store
+  .env.local
+  .env.development.local
+  .env.test.local
+  .env.production.local
+
+  npm-debug.log*
+  yarn-debug.log*
+  yarn-error.log*`
+);
+
 fs.writeFileSync(`${process.cwd()}/package.json`, `{
     "name": "xyz",
     "version": "1.0.0",
