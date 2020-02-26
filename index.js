@@ -21,39 +21,38 @@ const cmd = `
 `;
 
 const templateFiles = readSubFilesFrom(path.join(__dirname, 'template'));
-fs.mkdirSync(`${process.cwd()}/app`);
-outputDirContentOf(templateFiles, path.join(__dirname, 'template'), `${process.cwd()}/app`);
+
+outputDirContentOf(templateFiles, path.join(__dirname, 'template'), `${process.cwd()}`);
 
 execSync(cmd);
 
 fs.writeFileSync(`${process.cwd()}/.gitignore`, 
-  `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+`# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-  # dependencies
-  /node_modules
-  /dist
-  /.pnp
-  /yarn.lock
-  .pnp.js
+# dependencies
+/node_modules
+/dist
+/.pnp
+/yarn.lock
+.pnp.js
 
-  # testing
-  /coverage
+# testing
+/coverage
 
-  # production
-  /build
+# production
+/build
 
-  # misc
-  .DS_Store
-  .env.local
-  .env.development.local
-  .env.test.local
-  .env.production.local
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-  npm-debug.log*
-  yarn-debug.log*
-  yarn-error.log*`
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*`
 );
-
 fs.writeFileSync(`${process.cwd()}/package.json`, `{
     "name": "xyz",
     "version": "1.0.0",
