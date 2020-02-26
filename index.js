@@ -5,28 +5,27 @@ const fs = require('fs');
 const path = require('path');
 
 const { readSubFilesFrom, outputDirContentOf } = require('create-rboil-utils');
-// const { outputDirContentOf } = require('./cli/outputDirContentOf');
 
-// const cmd = `
-//     # basic npm structure
-//     $PWD = pwd;
+const cmd = `
+    # basic npm structure
+    $PWD = pwd;
 
-//     yarn init -y
+    yarn init -y
 
-//     yarn add --dev style-loader css-loader node-sass sass-loader html-loader file-loader
-//     yarn add --dev  webpack webpack-cli webpack-merge webpack-dev-server
-//     yarn add --dev mini-css-extract-plugin clean-webpack-plugin  html-webpack-plugin
-//     yarn add --dev @babel/core @babel/preset-env @babel/preset-react babel-loader
-//     yarn add react react-dom
-//     yarn add --dev jest
-// `;
-//execSync(cmd);
+    yarn add --dev style-loader css-loader node-sass sass-loader html-loader file-loader
+    yarn add --dev  webpack webpack-cli webpack-merge webpack-dev-server
+    yarn add --dev mini-css-extract-plugin clean-webpack-plugin  html-webpack-plugin
+    yarn add --dev @babel/core @babel/preset-env @babel/preset-react babel-loader
+    yarn add react react-dom
+    yarn add --dev jest
+`;
 
 const templateFiles = readSubFilesFrom(path.join(__dirname, 'template'));
+fs.mkdirSync(`${process.cwd()}/app`);
+outputDirContentOf(templateFiles, path.join(__dirname, 'template'), `${process.cwd()}/app`);
 
-console.log('index.js', path.join(__dirname, 'template'), process.cwd());
+execSync(cmd);
 
-outputDirContentOf(templateFiles, path.join(__dirname, 'template'), process.cwd());
 fs.writeFileSync(`${process.cwd()}/.gitignore`, 
   `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
