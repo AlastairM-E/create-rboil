@@ -6,3 +6,9 @@ If you really want to use this significantly worse version of create-react-app, 
 
     yarn create rboil
 
+**Basic Commands**
+
+To create a basic development server use:
+
+    yarn start
+
