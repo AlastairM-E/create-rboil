@@ -17,6 +17,7 @@ const cmd = `
     yarn add --dev mini-css-extract-plugin clean-webpack-plugin  html-webpack-plugin
     yarn add --dev @babel/core @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime @babel/plugin-syntax-dynamic-import babel-loader
     yarn add --dev jest
+    yarn add --dev @testing-library/react
     yarn add --dev create-rboil-utils
     yarn add react react-dom
 `;

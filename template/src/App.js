@@ -2,10 +2,12 @@
 import React from 'react'; 
 
 /*COMPONENT*/
-export default function App() {
+function App() {
 
     return (
-        <div className="App">Hello world</div>
+        <div className="App" data-testid="App">Hello world</div>
     ); 
 
 };
+
+export default App;
