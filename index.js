@@ -98,7 +98,7 @@ fs.writeFileSync(`${process.cwd()}/package.json`, `{
   },
   "jest": {
     "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
+      "^.+\\\\.[t|j]sx?$": "babel-jest"
     }
   }
 }

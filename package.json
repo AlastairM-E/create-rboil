@@ -8,6 +8,10 @@
     "create-rboil": "./index.js"
   },
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/AlastairM-E/create-rboil"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
