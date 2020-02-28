@@ -93,8 +93,7 @@ fs.writeFileSync(`${process.cwd()}/package.json`, `{
   },
   "scripts": {
     "start": "webpack-dev-server --config ./dev-scripts/webpack.dev.js --open",
-    "build": "webpack --config ./dev-scripts/webpack.prod.js",
-    "test": "node ./dev-scripts/bundleTests.js && jest ./test && rm -rf test/*"
+    "build": "webpack --config ./dev-scripts/webpack.prod.js", 
   },
   "jest": {
     "transform": {
@@ -103,3 +102,5 @@ fs.writeFileSync(`${process.cwd()}/package.json`, `{
   }
 }
 `);
+
+//testing - "test": "node ./dev-scripts/bundleTests.js && jest ./test && rm -rf test/*"
