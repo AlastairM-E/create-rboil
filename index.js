@@ -18,6 +18,9 @@ const cmd = `
     yarn add --dev @babel/core @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime @babel/plugin-syntax-dynamic-import babel-loader
     yarn add --dev jest
     yarn add --dev @testing-library/react
+    yarn add --dev @types/react @types/react-dom
+    yarn add --dev typescript
+    yarn add --dev @babel/preset-typescript
     yarn add --dev create-rboil-utils
     yarn add react react-dom
 `;
