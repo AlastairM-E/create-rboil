@@ -6,57 +6,32 @@ const path = require('path');
 
 const { readSubFilesFrom, outputDirContentOf } = require('create-rboil-utils');
 
-const cmdInit = 'yarn init -y', 
+// CLI part
+const cmdInit = 'yarn init -y'; 
 
 const devDependencies = [
-  'style-loader', 
-  'css-loader', 
-  'node-sass',
-  'sass-loader',
-  'html-loader',
-  'file-loader',
-  'webpack',
-  'webpack-cli',
-  'webpack-merge',
-  'webpack-dev-server',
-  'mini-css-extract-plugin',
-  'clean-webpack-plugin',
-  'html-webpack-plugin',
-  '@babel/core',
-  '@babel/preset-env',
-  '@babel/preset-react',
-  '@babel/plugin-syntax-dynamic-import',
-  '@babel/plugin-transform-runtime',
-  'babel-loader',
-  'jest',
-  '@testing-library/react',
+  'webpack webpack-cli webpack-merge webpack-dev-server clean-webpack-plugin html-webpack-plugin',
+  'style-loader css-loader node-sass sass-loader mini-css-extract-plugin', 
+  'html-loader file-loader', 
+  '@babel/core @babel/preset-env @babel/preset-react @babel/plugin-syntax-dynamic-import @babel/plugin-transform-runtime babel-loader',
+  'jest @testing-library/react',
   'create-rboil-utils'
 ];
-const productionDependecies = [
-  'react', 
-  'react-dom'
-];
 
-/* 
- yarn add --dev @types/react @types/react-dom
-    yarn add --dev typescript
-    yarn add --dev @babel/preset-typescript
-*/
+const productionDependecies = 'react react-dom';
 
 execSync(cmdInit);
 
 devDependencies.forEach((yarnPackage, index, source) =>{
   console.log(`installing ${yarnPackage}`);
   console.log(`${index + 1}/${source.length}`);
-  execSync(yarnPackage);
+  execSync(`yarn add --dev ${yarnPackage}`);
 });
 
-productionDependencies.forEach((yarnPackage, index, source) =>{
-  console.log(`installing ${yarnPackage}`);
-  console.log(`${index + 1}/${source.length}`);
-  execSync(yarnPackage);
-});
+console.log(`installing ${productionDependecies}`);
+execSync(`yarn add ${productionDependecies}`);
 
+//output documents
 const pathOfCmd = process.cwd().split('/')
 const nameOfCmdDir = pathOfCmd[pathOfCmd.length - 1].toLowerCase();
 

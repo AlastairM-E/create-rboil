@@ -8,9 +8,11 @@ If you really want to use this significantly worse version of create-react-app, 
 
     yarn create rboil
 
-**Issues**
+**Issues & feature requests**
 
 If you have any issues, please do submit an issue with the appropiate error messages and code you tried to executed and I will try to fix said bug.
+
+If there is a feature you would like the cli to include, please make an issue on the github repository.
 
 Note :
 - I will try my best to complete the issues but I may not have the time to complete them right away.
@@ -26,7 +28,9 @@ To build and minify your app use:
 
     yarn build
 
-One cannot use **yarn test** to test with jest currently. This issue will be resolved as soon as possible.
+To test with using Jest and testing-library/react, use:
+
+    yarn test
 
 
 
