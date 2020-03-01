@@ -8,6 +8,14 @@ If you really want to use this significantly worse version of create-react-app, 
 
     yarn create rboil
 
+**Issues**
+
+If you have any issues, please do submit an issue with the appropiate error messages and code you tried to executed and I will try to fix said bug.
+
+Note :
+- I will try my best to complete the issues but I may not have the time to complete them right away.
+- Please do not try to contribute to the project just yet.
+
 **Basic Commands**
 
 To create a basic development server use:
@@ -20,11 +28,5 @@ To build and minify your app use:
 
 One cannot use **yarn test** to test with jest currently. This issue will be resolved as soon as possible.
 
-**Issues**
 
-If you have any issues, please do submit an issue with the appropiate error messages and code you tried to executed and I will try to fix said bug.
-
-Note :
-- I will try my best to complete the issues but I may not have the time to complete them right away.
-- Please do not try to contribute to the project just yet.
 

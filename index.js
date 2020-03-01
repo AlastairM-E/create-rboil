@@ -6,24 +6,56 @@ const path = require('path');
 
 const { readSubFilesFrom, outputDirContentOf } = require('create-rboil-utils');
 
-const cmd = `
-    # basic npm structure
-    $PWD = pwd;
+const cmdInit = 'yarn init -y', 
 
-    yarn init -y
+const devDependencies = [
+  'style-loader', 
+  'css-loader', 
+  'node-sass',
+  'sass-loader',
+  'html-loader',
+  'file-loader',
+  'webpack',
+  'webpack-cli',
+  'webpack-merge',
+  'webpack-dev-server',
+  'mini-css-extract-plugin',
+  'clean-webpack-plugin',
+  'html-webpack-plugin',
+  '@babel/core',
+  '@babel/preset-env',
+  '@babel/preset-react',
+  '@babel/plugin-syntax-dynamic-import',
+  '@babel/plugin-transform-runtime',
+  'babel-loader',
+  'jest',
+  '@testing-library/react',
+  'create-rboil-utils'
+];
+const productionDependecies = [
+  'react', 
+  'react-dom'
+];
 
-    yarn add --dev style-loader css-loader node-sass sass-loader html-loader file-loader
-    yarn add --dev  webpack webpack-cli webpack-merge webpack-dev-server
-    yarn add --dev mini-css-extract-plugin clean-webpack-plugin  html-webpack-plugin
-    yarn add --dev @babel/core @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime @babel/plugin-syntax-dynamic-import babel-loader
-    yarn add --dev jest
-    yarn add --dev @testing-library/react
-    yarn add --dev @types/react @types/react-dom
+/* 
+ yarn add --dev @types/react @types/react-dom
     yarn add --dev typescript
     yarn add --dev @babel/preset-typescript
-    yarn add --dev create-rboil-utils
-    yarn add react react-dom
-`;
+*/
+
+execSync(cmdInit);
+
+devDependencies.forEach((yarnPackage, index, source) =>{
+  console.log(`installing ${yarnPackage}`);
+  console.log(`${index + 1}/${source.length}`);
+  execSync(yarnPackage);
+});
+
+productionDependencies.forEach((yarnPackage, index, source) =>{
+  console.log(`installing ${yarnPackage}`);
+  console.log(`${index + 1}/${source.length}`);
+  execSync(yarnPackage);
+});
 
 const pathOfCmd = process.cwd().split('/')
 const nameOfCmdDir = pathOfCmd[pathOfCmd.length - 1].toLowerCase();
@@ -32,7 +64,6 @@ const templateFiles = readSubFilesFrom(path.join(__dirname, 'template'));
 
 outputDirContentOf(templateFiles, path.join(__dirname, 'template'), `${process.cwd()}`);
 
-execSync(cmd);
 
 fs.writeFileSync(`${process.cwd()}/.gitignore`, 
 `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
@@ -88,7 +119,8 @@ fs.writeFileSync(`${process.cwd()}/package.json`, `{
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "@testing-library/react": "^9.4.1"
   },
   "dependencies": {
     "react": "^16.12.0",
@@ -97,6 +129,7 @@ fs.writeFileSync(`${process.cwd()}/package.json`, `{
   "scripts": {
     "start": "webpack-dev-server --config ./dev-scripts/webpack.dev.js --open",
     "build": "webpack --config ./dev-scripts/webpack.prod.js", 
+    "test" : "jest ./src"
   },
   "jest": {
     "transform": {
@@ -105,5 +138,7 @@ fs.writeFileSync(`${process.cwd()}/package.json`, `{
   }
 }
 `);
+
+console.log('complete');
 
 //testing - "test": "node ./dev-scripts/bundleTests.js && jest ./test && rm -rf test/*"
