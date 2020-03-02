@@ -1,6 +1,6 @@
 {
   "name": "create-rboil",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "Basic react boilerplate generator",
   "main": "node index.js",
   "bin": {
