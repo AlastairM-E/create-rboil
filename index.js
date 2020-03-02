@@ -6,16 +6,13 @@ const path = require('path');
 
 const { readSubFilesFrom, outputDirContentOf } = require('create-rboil-utils');
 
-exec('yarn --version', (err, stdout) => {
-  if (err) {
-      throw err;
-  };
+exec('yarn --version', err => {
 
-  console.log('This may take a couple of minutes, sorry for the wait.')
+  console.log('This may take a couple of minutes, sorry for the delay');
 
-  const cmdInit = stdout ? 'yarn init -y' : 'npm init -y'; 
-  const addDevDependencies = stdout ? 'yarn add --dev' : 'npm install --save-dev';
-  const addProductionDependencies = stdout ? 'yarn add' : 'npm install';
+  const cmdInit = !err ? 'yarn init -y' : 'npm init -y'; 
+  const addDevDependencies = !err ? 'yarn add --dev' : 'npm install --save-dev';
+  const addProductionDependencies = !err ? 'yarn add' : 'npm install';
 
   // CLI part
 
@@ -48,6 +45,33 @@ exec('yarn --version', (err, stdout) => {
   const templateFiles = readSubFilesFrom(path.join(__dirname, 'template'));
 
   outputDirContentOf(templateFiles, path.join(__dirname, 'template'), `${process.cwd()}`);
+
+fs.writeFileSync(`${process.cwd()}/.gitignore`, 
+`# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/dist
+/.pnp
+/yarn.lock
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*`
+);
 
   fs.writeFileSync(`${process.cwd()}/package.json`, `{
     "name": "${nameOfCmdDir}",

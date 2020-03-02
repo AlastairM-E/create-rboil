@@ -1,34 +1,47 @@
-This is just a very simple React cli which generates a basic boilerplate react app.
+This is just a very simple React cli which generates a basic boilerplate react app. Sass is included by default.
 
-If you are looking for a React CLI please try **_create-react-app_** npm package.
+If you are looking for a sophisticated React CLI please try **_create-react-app_** npm package.
 
-**CREATE RBOIL**
+# **CREATE RBOIL**
 
-If you really want to use this significantly worse version of create-react-app, then please install yarn and run the package via the following command:
+* [Getting started](#getting-started).
+* [Issues & feature-requests](#issues--feature-requests)
+* [Basic Commands](#basic-commands).
+
+## **Getting Started**
+
+ The following commands will create a basic boilerplate react app.
+
+ Run this command if you only use npm:
+ (Note : Currently the package will default to the yarn package manager if you have it install)
+
+    npx create-rboil
+ 
+ If you have yarn please run:
 
     yarn create rboil
 
-**Issues & feature requests**
+## **Issues & feature requests**
 
-If you have any issues, please do submit an issue with the appropiate error messages and code you tried to executed and I will try to fix said bug.
+ If you have any issues, please do submit an issue with the appropiate error messages and code you tried to executed and I will try to fix said bug.
 
-If there is a feature you would like the cli to include, please make an issue on the github repository.
+ If there is a feature you would like the cli to include, please make an issue on the github repository.
 
-Note :
-- I will try my best to complete the issues but I may not have the time to complete them right away.
-- Please do not try to contribute to the project just yet.
+ Note :
+ - I will try my best to complete the issues but I may not have the time to complete them right away.
+ - Please do not try to contribute to the project just yet.
 
-**Basic Commands**
+## **Basic Commands**
 
-To create a basic development server use:
+ To create a basic development server use:
 
     yarn start
 
-To build and minify your app use:
+ To build and minify your app use:
 
     yarn build
 
-To test with using Jest and testing-library/react, use:
+ To test with using Jest and testing-library/react, use:
 
     yarn test
 
