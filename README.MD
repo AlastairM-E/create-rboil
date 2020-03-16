@@ -10,7 +10,7 @@ If you are looking for a sophisticated React CLI please try **_create-react-app_
 
 ## **Getting Started**
 
- The following commands will create a basic boilerplate react app.
+ The following commands will create a basic boilerplate react app, in a folder you have created (it does not currently create a separate folder unlike create-react-app).
 
  Run this command if you only use npm:
  (Note : Currently the package will default to the yarn package manager if you have it install)
@@ -20,6 +20,20 @@ If you are looking for a sophisticated React CLI please try **_create-react-app_
  If you have yarn please run:
 
     yarn create rboil
+
+This will create follow file structure:
+
+```
+<your-parent-foldername>/
+  node_modules/
+  package.json
+  public/
+    template.html
+  src/
+    App.jsx
+    App.test.jsx
+    index.js
+```
 
 ## **Issues & feature requests**
 
