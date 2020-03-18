@@ -18,7 +18,6 @@ exec('yarn --version', err => {
 
   fs.mkdirSync(currentDir);
   console.log(`cding to ${nameOfFolder}`);
-  execSync(`cd ${nameOfFolder}`);
 
   // CLI part
 
@@ -33,7 +32,7 @@ exec('yarn --version', err => {
 
   const productionDependecies = 'react react-dom';
 
-  execSync(cmdInit);
+  execSync(cmdInit, { cwd : currentDir });
 
   devDependencies.forEach((yarnPackage, index, source) =>{
     console.log(`installing ${yarnPackage}`);
@@ -42,7 +41,7 @@ exec('yarn --version', err => {
   });
 
   console.log(`installing ${productionDependecies}`);
-  execSync(`${addProductionDependencies} ${productionDependecies}`);
+  execSync(`${addProductionDependencies} ${productionDependecies}`, { cwd : currentDir });
 
   const templateFiles = readSubFilesFrom(path.join(__dirname, 'template'));
 
