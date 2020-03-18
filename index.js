@@ -3,8 +3,10 @@ const { exec, execSync } = require('child_process');
 const process = require('process');
 const fs = require('fs');
 const path = require('path');
-
 const { readSubFilesFrom, outputDirContentOf } = require('create-rboil-utils');
+
+const [nameOfFolder] = process.argv.splice(2);
+const currentDir = `${process.cwd()}/${nameOfFolder}`;
 
 exec('yarn --version', err => {
 
@@ -13,6 +15,10 @@ exec('yarn --version', err => {
   const cmdInit = !err ? 'yarn init -y' : 'npm init -y'; 
   const addDevDependencies = !err ? 'yarn add --dev' : 'npm install --save-dev';
   const addProductionDependencies = !err ? 'yarn add' : 'npm install';
+
+  fs.mkdirSync(currentDir);
+  console.log(`cding to ${nameOfFolder}`);
+  execSync(`cd ${nameOfFolder}`);
 
   // CLI part
 
@@ -38,15 +44,11 @@ exec('yarn --version', err => {
   console.log(`installing ${productionDependecies}`);
   execSync(`${addProductionDependencies} ${productionDependecies}`);
 
-  //output documents
-  const pathOfCmd = process.cwd().split('/')
-  const nameOfCmdDir = pathOfCmd[pathOfCmd.length - 1].toLowerCase();
-
   const templateFiles = readSubFilesFrom(path.join(__dirname, 'template'));
 
-  outputDirContentOf(templateFiles, path.join(__dirname, 'template'), `${process.cwd()}`);
+  outputDirContentOf(templateFiles, path.join(__dirname, 'template'), `${currentDir}`);
 
-fs.writeFileSync(`${process.cwd()}/.gitignore`, 
+fs.writeFileSync(`${currentDir}/.gitignore`, 
 `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -73,8 +75,8 @@ yarn-debug.log*
 yarn-error.log*`
 );
 
-  fs.writeFileSync(`${process.cwd()}/package.json`, `{
-    "name": "${nameOfCmdDir}",
+  fs.writeFileSync(`${currentDir}/package.json`, `{
+    "name": "${nameOfFolder}",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
