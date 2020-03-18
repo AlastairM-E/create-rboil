@@ -32,15 +32,18 @@ exec('yarn --version', err => {
 
   const productionDependecies = 'react react-dom';
 
+  //execSync : cmdInit
   execSync(cmdInit, { cwd : currentDir });
 
   devDependencies.forEach((yarnPackage, index, source) =>{
     console.log(`installing ${yarnPackage}`);
     console.log(`${index + 1}/${source.length}`);
-    execSync(`${addDevDependencies} ${yarnPackage}`);
+    //execSync --> dev depencies and stuff
+    execSync(`${addDevDependencies} ${yarnPackage}`, { cwd : currentDir });
   });
 
   console.log(`installing ${productionDependecies}`);
+  // production dependencies
   execSync(`${addProductionDependencies} ${productionDependecies}`, { cwd : currentDir });
 
   const templateFiles = readSubFilesFrom(path.join(__dirname, 'template'));
