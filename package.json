@@ -14,6 +14,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "copy-dir": "^1.2.0",
     "create-rboil-utils": "1.1.0"
   }
 }

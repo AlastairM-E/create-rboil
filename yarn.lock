@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+copy-dir@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/copy-dir/-/copy-dir-1.2.0.tgz#d2634378186d8762769285b36efb307a7945964e"
+  integrity sha512-UeaUFUIHqGV4brjQ9bY2mHll/hoxyCak2emgmYG72LkGKABHBdBDKFw0H5nTKt5OzVBkBhkxCwnniJBAE7EGEw==
+
 create-rboil-utils@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/create-rboil-utils/-/create-rboil-utils-1.1.0.tgz#ade27c6565273269434eb0ad19a8b4a5f837164d"
